@@ -25,13 +25,15 @@ export const convertFileSize = (sizeInBytes: number, digits?: number) => {
 };
 
 export const calculateAngle = (sizeInBytes: number) => {
-  const totalSizeInBytes = 2 * 1024 * 1024 * 1024; // 2GB in bytes
+  //const totalSizeInBytes = 2 * 1024 * 1024 * 1024; // 2GB in bytes
+  const totalSizeInBytes = 20 * 1024 * 1024 * 1024; // 20GB in bytes
   const percentage = (sizeInBytes / totalSizeInBytes) * 360;
   return Number(percentage.toFixed(2));
 };
 
 export const calculatePercentage = (sizeInBytes: number) => {
-  const totalSizeInBytes = 2 * 1024 * 1024 * 1024; // 2GB in bytes
+  const totalSizeInBytes = 20 * 1024 * 1024 * 1024; // 2GB in bytes
+  //const totalSizeInBytes = 20 * 1024 * 1024 * 1024; // 2GB in bytes
   const percentage = (sizeInBytes / totalSizeInBytes) * 100;
   return Number(percentage.toFixed(1));
 };
