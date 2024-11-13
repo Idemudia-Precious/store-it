@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import FileUploader from "@/components/FileUploader";
 import { signOutUser } from "@/lib/actions/user.actions";
 import { Separator } from "./ui/separator";
+import Search from "./Search";
 
 interface Props {
   $id: string;
@@ -44,6 +45,8 @@ const MobileNavigation = ({
         height={52}
         className="h-auto"
       />
+
+      <Search />
 
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger>
