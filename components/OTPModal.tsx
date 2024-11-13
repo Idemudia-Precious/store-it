@@ -20,6 +20,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { verifySecret, sendEmailOTP } from "@/lib/actions/user.actions";
 import { useRouter } from "next/navigation";
+import { useToast } from "@/hooks/use-toast";
 
 const OtpModal = ({
   accountId,
@@ -33,6 +34,8 @@ const OtpModal = ({
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const { toast } = useToast();
+
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setIsLoading(true);
@@ -44,8 +47,15 @@ const OtpModal = ({
       if (sessionId) {
         setIsOpen(false);
         router.replace("/");
+        toast({
+          description: "Log-In Successfull",
+        });
       } else {
         // Handle invalid OTP case
+        toast({
+          variant: "destructive",
+          description: "An error occured",
+        });
         console.error("OTP verification failed");
       }
     } catch (error) {
